@@ -17,6 +17,3 @@ First Add you Connection stirng for the database connection `CleanArchitecture.A
  }
 ```
 
-## Limitations
-
-The API does not show how to implement distinct databases to read and write data, nor shows advanced synchronization features. The application just shows examples of using MeadiatR and, consequently, the mediator pattern to handle request and responses in a CQRS approach.
