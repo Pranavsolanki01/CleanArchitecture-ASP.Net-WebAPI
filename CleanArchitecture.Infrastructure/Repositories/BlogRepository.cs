@@ -35,12 +35,6 @@ namespace CleanArchitecture.Infrastructure.Repositories
 			return blog;
 		}
 
-		public async Task<int> DeleteAsync(int id)
-		{
-			return await _DbContext.Blogs
-				  .Where(model => model.Id == id)
-			.ExecuteDeleteAsync();
-		}
 
 		
 		public async Task<int> UpdateAsync(int id, Blog blog)
@@ -48,12 +42,17 @@ namespace CleanArchitecture.Infrastructure.Repositories
 			return await _DbContext.Blogs
 				  .Where(model => model.Id == id)
 				  .ExecuteUpdateAsync(setters => setters
-					.SetProperty(m => m.Id, blog.Id)
 					.SetProperty(m => m.Name, blog.Name)
 					.SetProperty(m => m.Description, blog.Description)
 					.SetProperty(m => m.Author, blog.Author)
 					.SetProperty(m => m.ImageUrl, blog.ImageUrl)
 				  );
+		}
+		public async Task<int> DeleteAsync(int id)
+		{
+			return await _DbContext.Blogs
+				  .Where(model => model.Id == id)
+			.ExecuteDeleteAsync();
 		}
 	}
 }

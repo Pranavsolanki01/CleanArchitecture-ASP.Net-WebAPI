@@ -15,15 +15,6 @@ namespace CleanArchitecture.Application.Services
 		{
 			_blogRepository = blogRepository;
 		}
-		public async Task<Blog> CreateAsync(Blog blog)
-		{
-			return await _blogRepository.CreateAsync(blog);
-		}
-
-		public async Task<int> DeleteAsync(int id)
-		{
-			return await _blogRepository.DeleteAsync(id);
-		}
 
 		public async Task<List<Blog>> GetAllAsync()
 		{
@@ -34,6 +25,17 @@ namespace CleanArchitecture.Application.Services
 		{
 			return await _blogRepository.GetByIdAsync(id);
 		}
+		public async Task<Blog> CreateAsync(Blog blog)
+		{
+			return await _blogRepository.CreateAsync(blog);
+		}
+
+		public async Task<int> DeleteAsync(int id)
+		{
+			return await _blogRepository.DeleteAsync(id);
+		}
+
+	
 
 		public async Task<int> UpdateAsync(int id, Blog blog)
 		{
